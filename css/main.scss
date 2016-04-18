@@ -3,51 +3,120 @@
 ---
 @charset "utf-8";
 
-
-
-// Our variables
+// vars
 $base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $base-font-size:   16px;
 $base-font-weight: 400;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
 
-$spacing-unit:     30px;
+$spacing-unit:  30px;
 
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
+$text-color:  #FFF;
+$background-color: #000;
 
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
+// content regions
+$content-width:    1000px;
 
-// Width of the content area
-$content-width:    800px;
-
-$on-palm:          600px;
-$on-laptop:        800px;
+$mobile:  650px;
+$tablet: 700px;
+$screen: 800px;
 
 
+// layout
+html, body {
+  margin: 0;
+  min-height: 100%;
+  height: 100%
+}
+
+body {
+  background-image: url('/images/sheldon_works_cover.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-color: black;
+}
+
+#frame {
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  display: block;
+  padding: 0;
+}
+
+#brandaid {
+  top: 20%;
+  right: -10%;
+  display: block;
+  margin: 0 auto;
+  height: 260px;
+  width: 520px;
+  background-image: url('/images/sheldon_works_lgo_shaded_white.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+}
+
+#directory {
+  list-style: none;
+  margin: 0;
+  margin-left: 50px;
+  padding: 0;
+  transform: rotate(-12deg);
+  display: inline-block;
+  position: relative;
+  float: right;
+  top: 110px;
+  right: 15%;
+  li {
+    margin: 0 15px;
+    width: 60px;
+    height: 80px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('/images/sheldon_works_social.svg');
+    opacity: 0.8;
+    display: inline-block;
+    cursor: pointer;
+    &:hover { opacity: 1; }
+    &.twitter { background-position: -76px 0; }
+    &.linkedin { background-position: -152px 0;  }
+    &.behance { background-position: -215px 0; }
+    &.github { background-position: -290px 0; }
+    &.medium { background-position: -10px 0; }
+  }
+  a {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border: none;
+    text-decoration: none;
+  }
+}
 
 // Use media queries like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
 @mixin media-query($device) {
     @media screen and (max-width: $device) {
         @content;
     }
 }
 
-
-
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import
-        "base",
-        "layout",
-        "syntax-highlighting"
-;
+@include media-query($mobile) {
+    #brandaid {
+      width: 90%;
+      right: auto;
+      display: inline-block;
+    }
+    #directory {
+      right: auto;
+      float: none;
+      margin: 0;
+      padding: 0;
+      left: -20px;
+      padding-left: 50px;
+    }
+}
