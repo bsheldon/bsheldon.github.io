@@ -107,6 +107,7 @@ body {
 
 @include media-query($mobile) {
     #brandaid {
+      top: 8%;
       width: 90%;
       right: auto;
       display: inline-block;
@@ -117,6 +118,7 @@ body {
       margin: 0;
       padding: 0;
       left: -20px;
+      top: 0px;
       padding-left: 50px;
     }
 }
